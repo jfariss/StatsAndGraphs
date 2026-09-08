@@ -1,0 +1,67 @@
+---
+title: "Lesson 1: Introduction to R, RStudio, and Quarto"
+format: 
+  html:
+    embed-resources: true
+    
+editor: visual
+---
+
+## Step 4: Using a Simple Quarto Document
+
+Let’s test Quarto by running a simple calculation. Click the green arrow at the top right of the code chunk to run all code inside the chunk.
+
+```{r Basic_Calculation}
+
+# A simple addition. Results will be displayed below this box.
+5 + 5
+```
+
+The green arrow runs all the code inside the chunk. Results are typically output below the code chunk, but sometimes plots may appear in the Viewer Pane in the bottom right quadrant of RStudio.
+
+In the instance above, our result should be 10. The \[1\] simply indicates there is 1 result from the calculation.
+
+Let's try using a function. A function is similar to a formula name in Excel. In the chunk below we will use the **head()** function to view the first few rows of a data frame. Remember: Use the green arrow to run all the code in the chunk.
+
+```{r Function_Call}
+
+# Assign the built-in data frame mtcars to df
+df <- mtcars # <- is called the assignment operator. It assigns mtcars to df.
+
+# Now call the head function on df
+head(df)
+```
+
+Some function names have the same name and algorithm as in Excel. Use the median function below to get the median horsepower (hp) from our dt data frame.
+
+```{r Medians}
+
+median(df$hp) # specify the data frame and the variable
+```
+
+You should get a result of 123 for horsepower. Try changing the variable to another and running the chunk to get a new result.
+
+Let's create a simple **scatter plot** showing horsepower vs. miles per gallon using base r commands.
+
+```{r Scatter_Plot}
+
+# create a scatter plot using base r functions
+plot(df$hp, df$mpg, # Specify x and y variables to use
+     main = "Horsepower vs. MPG", # Create a title
+     xlab = "Horsepower", # Add nicer x label
+     ylab = "Miles Per Gallon", # Add nicer y label
+     pch = 16, # Make the points solid circles
+     col = "blue") # Make points blue
+```
+
+## 
+
+## Step 5: Rendering the Document
+
+To generate the ouput document, which we've instructed should be an html document, click **Render** in the tool bar.
+
+> *Tip! When rendering, you must import your data with code or use a built-in data set. Rendering does not work from the environment, so not all Quarto docs can be rendered.*
+
+------------------------------------------------------------------------
+
+In the next lesson, we will **import and clean real estate market data**.
